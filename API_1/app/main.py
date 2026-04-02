@@ -21,6 +21,6 @@ app = FastAPI(title="API_1.0.0",
 app.include_router(router, prefix="/router", tags=["Users"])
 
 
-@app.head("", tags=["Sistem"])
+@app.head("/", tags=["Sistem"])
 def get_health():
     return
