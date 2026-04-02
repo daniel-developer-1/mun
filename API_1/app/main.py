@@ -1,5 +1,14 @@
 from fastapi import FastAPI
-from .routers.user import router
+try:
+    from .routers.user import router
+    from .database import engine
+    from .models.user import Base
+except:
+    from routers.user import router
+    from database import engine, Base
+
+Base.metadata.create_all(bind=engine)
+
 
 model_tags = [
     {"name": "Users"},
