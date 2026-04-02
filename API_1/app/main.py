@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers.user import router
+from .routers.user import router
 
 model_tags = [
     {"name": "Users"},
@@ -9,7 +9,7 @@ model_tags = [
 app = FastAPI(title="API_1.0.0",
               openapi_tags=model_tags)
 
-app.include_router(prefix="/router", router=router)
+app.include_router(router, prefix="/router")
 
 
 @app.get("/", tags=["Users"])
