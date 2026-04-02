@@ -3,11 +3,11 @@ from datetime import datetime
 
 
 class UserBase(BaseModel):
-    username: str = Field(..., min_length=3)
+    username: str = Field(default="name", min_length=3)
 
 
 class UserCreate(UserBase):
-    password: str = Field(..., min_length=6, max_length=28)
+    password: str = Field(default="password123", min_length=4, max_length=28)
     email: EmailStr
 
 

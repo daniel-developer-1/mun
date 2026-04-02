@@ -17,6 +17,11 @@ except:
 router = APIRouter()
 
 
+@router.get("/")
+def get_root():
+    return {"Message": "Welcome to my API"}
+
+
 @router.post("/create_user", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 def create_new_user(user: UserCreate, db: Session = Depends(get_db)):
     new_user = create_user(db, user)

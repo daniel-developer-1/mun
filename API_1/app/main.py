@@ -18,12 +18,7 @@ model_tags = [
 app = FastAPI(title="API_1.0.0",
               openapi_tags=model_tags)
 
-app.include_router(router, prefix="/router")
-
-
-@app.get("/", tags=["Users"])
-def get_root():
-    return {"Message": "Welcome to my API"}
+app.include_router(router, prefix="/router", tags=["Users"])
 
 
 @app.head("", tags=["Sistem"])
