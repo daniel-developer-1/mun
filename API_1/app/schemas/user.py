@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 class UserBase(BaseModel):
-    username: str = Field(default="name", min_length=3)
+    username: str = Field(default="username", min_length=3)
 
 
 class UserCreate(UserBase):
